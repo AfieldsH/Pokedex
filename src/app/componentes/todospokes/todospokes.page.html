@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Todas las generaciones</ion-card-title>
+    <ion-card-subtitle>Hasta leyenda de espada y escudo</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+      <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content>
+      <ion-item *ngFor="let poke of pokedex, let i = index">
+        <ion-thumbnail slot="start">
+          <img [src]="'/assets/sprites/sprites/pokemon/' + (i+1) + '.png'" alt="avatar" />
+        </ion-thumbnail>
+        <ion-label>{{ poke.name }}</ion-label>
+      </ion-item>
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-card-content>
+</ion-card>
